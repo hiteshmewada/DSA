@@ -6,6 +6,14 @@
 	// the body will be expanded and inserted. 
 	//Possible variables are: $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
 	// same ids are connected.
+	{
+	// Place your snippets for cpp here. 
+	//Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. 
+	//The prefix is what is used to trigger the snippet
+	// the body will be expanded and inserted. 
+	//Possible variables are: $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
 	"Default cpp formate": {
 		"prefix": [
 			"include",
@@ -39,8 +47,14 @@
 			"#define sp(x,y) fixed<<setprecision(y)<<x",
 			"#define sz(x) ((ll)(x).size())",
 			"#ifndef ONLINE_JUDGE",
-			"#define deb2(x, y) cerr << #x << \"=\";_print(x); cerr<< \", \" << #y << \"=\";_print(y);cerr<< endl;",
+			"#define deb2(x, y); cerr << #x << \"=\";_print(x); cerr<< \", \" << #y << \"=\";_print(y);cerr<< endl;",
+			"#else",
+			"#define deb2(x); ",
+			"#endif",
+			"#ifndef ONLINE_JUDGE",
 			"#define deb(x) cerr << #x << \"=\";_print(x); cerr<<endl;",
+			"#else",
+			"#define deb(x); ",
 			"#endif",
 			"void _print(int a){cerr<<a;}",
 			"void _print(ll a){cerr<<a;}",
@@ -65,11 +79,12 @@
 			"\tios_base::sync_with_stdio(false);",
 			"\tcin. tie(0);cout. tie(0);",
 			"\tll t=1;",
-			"\t//cin>>t;",
+			"\tcin>>t;",
 			"\twhile(t--)",
 			"\t{",
 			"\t\tsolve();",
 			"\t}",
+			"//cerr << \"time taken : \" << (float)clock() / CLOCKS_PER_SEC << \" secs\" << endl; ",
 			"\treturn 0;",
 			"}",
 		],
