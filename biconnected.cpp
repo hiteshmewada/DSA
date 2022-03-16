@@ -31,17 +31,18 @@ bool Graph::isBCUtil(int u,bool vis[],int disc[],int low[],int par[]){
         // if x is not visited yet then make it a child of u in dfs tree and recur for it
         if(!vis[x]){
             child++;
+            par[x]=u;
             if(isBCUtil(x,vis,disc,low,par)) return true;
-            // check if subtree rooted with x has a connection to one of ancestors of u
             low[u]=min(low[u],low[x]);
-            if(par[u]!=-1 and child>1) return true;
-            // if u is not root and low value of one of its child is more than discovery value of u
+            // check if subtree rooted with x has a connection to one of ancestors of u
             if(par[u]!=-1 and low[x]>=disc[u]) return true;
+               // if u is root of dfs tree and has two or more children
+            if(par[u]==-1 and child>1) return true;
         }
         else if(x!=par[u])
             low[u]=min(low[u],disc[x]);
     }
-    // if u is root of dfs tree and has two or more children
+ 
     return false;
 }
 bool Graph::isBC(){
